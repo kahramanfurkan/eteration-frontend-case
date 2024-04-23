@@ -1,6 +1,11 @@
+//variables import
+@import "./variables";
+
 //component imports
 @import "../components/navbar/style";
 @import "../components/footer/style";
+@import "../components/filters/style";
+@import "../components/cart/style";
 
 * {
   box-sizing: border-box;
@@ -9,7 +14,19 @@
 }
 
 main {
-  max-width: 1200px;
+  max-width: 1400px;
   min-height: calc(100vh - 100px);
   margin: 0 auto;
+  padding: 0 50px;
+}
+
+.home {
+  display: flex;
+  margin-top: 40px;
+
+  &-productsSection {
+    width: 810px;
+    height: 930px;
+    margin: 0 auto;
+  }
 }

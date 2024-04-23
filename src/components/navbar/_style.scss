@@ -1,3 +1,57 @@
 .navbar {
+  @extend .bg-blue-primary;
+  @extend .c-white-primary;
   height: 50px;
+
+  &-wrapper {
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      @extend .fw-800;
+      width: 220px;
+    }
+
+    &-search {
+      width: 810px;
+      margin: 0 auto;
+
+      .ant-input {
+        &-wrapper {
+          width: 408px;
+        }
+
+        &-group-addon {
+          border: none !important;
+          background-color: #fff !important;
+          border-radius: unset !important;
+        }
+
+        &-outlined {
+          border: none !important;
+          border-radius: unset !important;
+          padding: 4px 0 !important;
+          box-shadow: none !important;
+          height: 35px;
+        }
+      }
+    }
+
+    &-userInfo {
+      display: flex;
+      column-gap: 20px;
+      width: 220px;
+
+      &-wallet,
+      &-profile {
+        display: flex;
+        column-gap: 10px;
+      }
+    }
+  }
 }

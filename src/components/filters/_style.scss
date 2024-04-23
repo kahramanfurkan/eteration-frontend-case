@@ -1,0 +1,11 @@
+.filters {
+  width: 220px;
+
+  &-sortOrder {
+  }
+
+  .filter-title {
+    @extend .fs-12;
+    @extend .c-title-secondary;
+  }
+}

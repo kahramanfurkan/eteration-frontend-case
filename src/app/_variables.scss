@@ -1,0 +1,39 @@
+//colors
+$colors: (
+  "blue-primary": #2a59fe,
+  "white-primary": #ffffff,
+  "title-secondary": #333333b2,
+);
+
+@each $name, $color in $colors {
+  .c-#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+//font-size
+$fontSizes: (
+  "12": 12px,
+  "24": 24px,
+);
+
+@each $name, $fontSize in $fontSizes {
+  .fs-#{$name} {
+    font-size: $fontSize;
+  }
+}
+
+//font-weight
+$fontWeights: (
+  "800": 800,
+);
+
+@each $name, $fontWeight in $fontWeights {
+  .fw-#{$name} {
+    font-weight: $fontWeight;
+  }
+}
