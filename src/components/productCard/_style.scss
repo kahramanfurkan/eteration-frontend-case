@@ -1,0 +1,33 @@
+.productCard {
+  @extend .bg-white-primary;
+  width: 180px;
+  height: 302px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &-price,
+  &-name {
+    @extend .fs-14;
+    @extend .fw-500;
+  }
+
+  &-price {
+    @extend .c-blue-primary;
+  }
+
+  &-name {
+    @extend .c-black-primary;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  &-button {
+    button {
+      span {
+        @extend .fs-16;
+      }
+    }
+  }
+}

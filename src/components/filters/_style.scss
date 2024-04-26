@@ -1,11 +1,26 @@
 .filters {
   width: 220px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 
-  &-sortOrder {
+  &-sortOrder,
+  &-brand,
+  &-model {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 
   .filter-title {
     @extend .fs-12;
     @extend .c-title-secondary;
+  }
+
+  .filter-box {
+    @extend .bg-white-primary;
+    padding: 15px;
+    height: auto;
+    min-height: 158px;
   }
 }
