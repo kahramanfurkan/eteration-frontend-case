@@ -7,6 +7,10 @@
 @import "../components/filters/style";
 @import "../components/cart/style";
 @import "../components/productCard/style";
+@import "../components/addCartButton/style";
+
+//page imports
+@import "./productDetail/[id]/style";
 
 * {
   box-sizing: border-box;
@@ -19,6 +23,11 @@ body {
 
   * {
     font-family: inherit !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -95,4 +104,26 @@ main {
   @extend .bg-white-primary;
   padding: 15px;
   height: auto;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.custom-scroll-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @extend .bg-white-primary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @extend .bg-grey-primary;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @extend .bg-grey-primary;
+  }
 }

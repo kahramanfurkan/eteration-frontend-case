@@ -8,8 +8,13 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { dataStore } from "@/store/dataStore";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const path = usePathname();
+  const router = useRouter();
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
   const { searchProduct } = dataStore();
 
@@ -27,11 +32,14 @@ export default function Navbar() {
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
+    if (path !== "/") router.push("/");
   };
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
-        <span className="navbar-wrapper-logo">Eteration</span>
+        <Link href="/" className="navbar-wrapper-logo">
+          Eteration
+        </Link>
         <div className="navbar-wrapper-search">
           <Input
             addonBefore={<SearchOutlined />}

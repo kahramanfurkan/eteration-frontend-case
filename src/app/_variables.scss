@@ -5,6 +5,8 @@ $colors: (
   "white-secondary": #f9f9f9,
   "title-secondary": #333333b2,
   "black-primary": #000000,
+  "red-primary": #ff0000,
+  "grey-primary": #c4c4c4,
 );
 
 @each $name, $color in $colors {
@@ -24,6 +26,7 @@ $fontSizes: (
   "13": 13px,
   "14": 14px,
   "16": 16px,
+  "18": 18px,
   "24": 24px,
 );
 

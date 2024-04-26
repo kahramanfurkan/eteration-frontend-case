@@ -38,6 +38,7 @@ export const cartStore = create<CartStore>((set, get) => ({
     get().syncStorage();
   },
   syncStorage: () => {
+    //storage setlemeden önce, sepetteki ürünü bir süre sonra expire edecek logic kurulabilir.
     localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
   },
 
