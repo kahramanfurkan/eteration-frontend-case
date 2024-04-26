@@ -27,6 +27,10 @@
     button {
       span {
         @extend .fs-16;
+
+        &.remove {
+          @extend .fs-14;
+        }
       }
     }
   }

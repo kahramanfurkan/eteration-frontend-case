@@ -35,8 +35,9 @@ main {
 
   &-productsSection {
     width: 810px;
-    height: 1030px;
+    height: 1060px;
     margin: 0 auto;
+    padding: 25px 0;
 
     &-loading {
       height: 50%;
@@ -83,4 +84,15 @@ main {
     height: 36px !important;
     border-radius: 4px !important;
   }
+}
+
+.box-title {
+  @extend .fs-12;
+  @extend .c-title-secondary;
+}
+
+.box-wrapper {
+  @extend .bg-white-primary;
+  padding: 15px;
+  height: auto;
 }

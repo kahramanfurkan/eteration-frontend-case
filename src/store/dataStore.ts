@@ -20,7 +20,7 @@ type DataStore = {
   selectedModels: string[];
   searchValue: string;
   getInitialData: () => void;
-  searchProduct: (searchProduct: string) => void;
+  searchProduct: (searchValue?: string) => void;
   getFilteredData: () => void;
   getPage: (page: number) => void;
   getSortedData: (sortOrder: string) => void;
@@ -49,7 +49,7 @@ export const dataStore = create<DataStore>((set, get) => ({
   selectedModels: [],
   searchValue: "",
   getInitialData: async () => {
-    //brands,models için ayrı api olmadığı için clientte oluşturuyorum.
+    //filtreler için ayrı api olmadığıdan clientte oluşturuyorum.
     set({ loading: true });
     const sortParams: string[] = get().selectedSort.split("&");
     const { data } = await axios.get(baseUrl, {
@@ -173,17 +173,17 @@ export const dataStore = create<DataStore>((set, get) => ({
             });
           }
         } else {
-          set({ products: [], total: 0, brands: [], models: [] });
+          set({ products: [], total: 0 });
         }
       })
       .catch((error) => {
-        set({ products: [], total: 0, brands: [], models: [] });
+        set({ products: [], total: 0 });
       });
     set({ loading: false });
   },
   searchProduct: async (searchValue) => {
     set({
-      searchValue: searchValue,
+      searchValue,
       currentPage: 1,
       limit: undefined,
       selectedBrands: [],
@@ -193,7 +193,7 @@ export const dataStore = create<DataStore>((set, get) => ({
     get().getFilteredData();
   },
   filterDataManually: () => {
-    //Mockapi search ile beraber diğer parametreleri senkron çalıştırmadığı için search sonucunu filtrelemeleyi bu fonksiyonda simule ediyorum.Normalde servisten dönmeli.
+    //Bu fonksiyonu Mockapi.io search parametresi ile diğer parametreler beraber kullanıldığında senkron çalışmadığı için search sonucunu filtrelemeleyi simule etmek amaçlı kullandım.Normalde servisten dönmeli.
     const sortParams = get().selectedSort.split("&");
     let filteredProducts: Product[] = get().searchResults;
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "antd";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   SearchOutlined,
   WalletOutlined,
@@ -10,10 +10,23 @@ import {
 import { dataStore } from "@/store/dataStore";
 
 export default function Navbar() {
+  const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
   const { searchProduct } = dataStore();
+
+  useEffect(() => {
+    //Kullanıcı typinge devam ederken search function tetiklenmesini önlüyorum.
+    if (searchValue !== undefined) {
+      const delayDebounceFn = setTimeout(() => {
+        searchProduct(searchValue);
+      }, 500);
+
+      return () => clearTimeout(delayDebounceFn);
+    }
+  }, [searchValue]);
+
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    searchProduct(value);
+    setSearchValue(value);
   };
   return (
     <nav className="navbar">
@@ -24,6 +37,7 @@ export default function Navbar() {
             addonBefore={<SearchOutlined />}
             placeholder="Search"
             onChange={onSearch}
+            allowClear
           />
         </div>
         <div className="navbar-wrapper-userInfo">

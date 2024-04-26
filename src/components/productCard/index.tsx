@@ -1,19 +1,13 @@
-//import { Product } from "@/types/commonTypes";
+"use client";
+
+import { Product } from "@/types/commonTypes";
 import Image from "next/image";
 import { Button } from "antd";
-
-export type Product = {
-  brand: string;
-  createdAt: string;
-  description: string;
-  id: string;
-  image: string;
-  model: string;
-  name: string;
-  price: string;
-};
+import { cartStore } from "@/store/cartStore";
 
 export default function ProductCard(product: Product) {
+  const { addToCart, removeFromCart, checkInCartStatus } = cartStore();
+
   return (
     <div className="productCard">
       <Image
@@ -27,7 +21,20 @@ export default function ProductCard(product: Product) {
       <section className="productCard-price">{product.price} ₺</section>
       <section className="productCard-name">{product.name}</section>
       <section className="productCard-button">
-        <Button type="primary">Add to Cart</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            checkInCartStatus(product)
+              ? removeFromCart(product)
+              : addToCart(product);
+          }}
+        >
+          {checkInCartStatus(product) ? (
+            <span className="remove">Remove from Cart</span>
+          ) : (
+            <span className="add">Add to Cart</span>
+          )}
+        </Button>
       </section>
     </div>
   );

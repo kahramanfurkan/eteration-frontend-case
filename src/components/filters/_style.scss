@@ -13,14 +13,11 @@
   }
 
   .filter-title {
-    @extend .fs-12;
-    @extend .c-title-secondary;
+    @extend .box-title;
   }
 
   .filter-box {
-    @extend .bg-white-primary;
-    padding: 15px;
-    height: auto;
+    @extend .box-wrapper;
     min-height: 158px;
   }
 }
