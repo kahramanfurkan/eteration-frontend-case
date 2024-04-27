@@ -1,9 +1,16 @@
 .addCartButton {
   span {
+    @include m576 {
+      font-size: map-get($fontSizes, "10");
+    }
     @extend .fs-16;
 
     &.remove {
       @extend .fs-14;
+
+      @include m576 {
+        font-size: map-get($fontSizes, "9");
+      }
     }
   }
 }

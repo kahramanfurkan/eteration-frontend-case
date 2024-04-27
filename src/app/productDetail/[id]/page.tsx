@@ -1,6 +1,12 @@
 import AddCartButton from "@/components/addCartButton";
 import axios from "axios";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Product Detail",
+  description: "Product Detail Page desc",
+};
 
 export default async function ProductDetail({
   params,

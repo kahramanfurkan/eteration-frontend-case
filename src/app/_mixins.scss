@@ -1,0 +1,32 @@
+//breakpoints
+
+@mixin m1400 {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin m1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin m991 {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin m767 {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin m576 {
+  //burada mobile geçiyorum
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}

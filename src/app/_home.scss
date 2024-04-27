@@ -1,0 +1,62 @@
+.home {
+  display: flex;
+  margin-top: 40px;
+
+  @include m991 {
+    margin-top: 0;
+  }
+
+  &-productsSection {
+    width: 810px;
+    margin: 0 auto;
+    padding: 25px 0;
+
+    &-loading {
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ant-spin-dot {
+        font-size: 36px !important;
+      }
+    }
+
+    &-notFound {
+      margin-top: 30px;
+      @extend .fs-14;
+
+      @include m1400 {
+        text-align: center;
+      }
+    }
+
+    .products {
+      &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @include m1400 {
+          justify-content: center;
+        }
+
+        @include m991 {
+          gap: 20px;
+        }
+      }
+
+      &-pagination {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &-filterSection,
+  &-cartSection {
+    @include m991 {
+      display: none;
+    }
+  }
+}

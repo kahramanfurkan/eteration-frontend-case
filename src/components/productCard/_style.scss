@@ -7,10 +7,26 @@
   flex-direction: column;
   gap: 15px;
 
+  @include m576 {
+    width: 130px;
+    height: 250px;
+  }
+
+  &-image {
+    @include m576 {
+      width: 110px;
+      height: 100px;
+    }
+  }
+
   &-price,
   &-name {
     @extend .fs-14;
     @extend .fw-500;
+
+    @include m576 {
+      font-size: map-get($fontSizes, "12");
+    }
   }
 
   &-price {

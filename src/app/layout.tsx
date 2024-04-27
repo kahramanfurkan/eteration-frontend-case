@@ -4,6 +4,7 @@ import "./globals.scss";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import MobileCartButton from "@/components/mobileCartButton";
 
 const monserrat = Montserrat({ subsets: ["latin"] });
 
@@ -24,6 +25,9 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <span className="mobileCart mobile-view">
+            <MobileCartButton />
+          </span>
         </AntdRegistry>
       </body>
     </html>

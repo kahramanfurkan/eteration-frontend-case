@@ -9,21 +9,49 @@
     margin: 0 auto;
     padding: 0 50px;
     display: flex;
-    //justify-content: space-between;
     align-items: center;
+
+    @include m991 {
+      padding: 0 40px;
+      justify-content: space-between;
+    }
+
+    @include m576 {
+      padding: 0 20px;
+    }
 
     &-logo {
       @extend .fw-800;
       width: 220px;
+
+      @include m991 {
+        width: unset;
+      }
+
+      @include m576 {
+        font-size: map-get($fontSizes, "12");
+      }
     }
 
     &-search {
       width: 810px;
       margin: 0 auto;
 
+      @include m991 {
+        width: unset;
+      }
+
       .ant-input {
         &-wrapper {
           width: 408px;
+
+          @include m991 {
+            width: 300px;
+          }
+
+          @include m576 {
+            width: 150px;
+          }
         }
 
         &-group-addon {
@@ -51,10 +79,26 @@
       column-gap: 20px;
       width: 220px;
 
+      @include m991 {
+        width: unset;
+      }
+
       &-wallet,
       &-profile {
         display: flex;
         column-gap: 10px;
+      }
+
+      &-wallet {
+        @include m991 {
+          display: none;
+        }
+      }
+
+      &-profile {
+        @include m576 {
+          font-size: map-get($fontSizes, "12");
+        }
       }
     }
   }

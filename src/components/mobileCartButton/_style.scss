@@ -1,0 +1,30 @@
+.mobileCartButton {
+  button {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      @extend .fs-28;
+    }
+  }
+
+  &-count {
+    @extend .bg-red-primary;
+    @extend .c-white-primary;
+    @extend .fs-12;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 11px 11px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

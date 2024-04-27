@@ -49,7 +49,7 @@ export const dataStore = create<DataStore>((set, get) => ({
   selectedModels: [],
   searchValue: "",
   getInitialData: async () => {
-    //filtreler için ayrı api olmadığıdan clientte oluşturuyorum.
+    //filtreler için ayrı api olmadığından clientte oluşturuyorum.
     set({ loading: true });
     const sortParams: string[] = get().selectedSort.split("&");
     const { data } = await axios.get(baseUrl, {
@@ -90,30 +90,27 @@ export const dataStore = create<DataStore>((set, get) => ({
     get().getFilteredData();
   },
   getSortedData: (sortOrder) => {
+    set({ selectedSort: sortOrder });
     if (get().searchValue) {
-      set({ selectedSort: sortOrder });
       get().filterDataManually();
       return;
     }
-    set({ selectedSort: sortOrder });
     get().getFilteredData();
   },
   getDataByBrands: (brands) => {
+    set({ selectedBrands: brands, currentPage: 1 });
     if (get().searchValue) {
-      set({ selectedBrands: brands });
       get().filterDataManually();
       return;
     }
-    set({ selectedBrands: brands, currentPage: 1 });
     get().getFilteredData();
   },
   getDataByModels: (models) => {
+    set({ selectedModels: models, currentPage: 1 });
     if (get().searchValue) {
-      set({ selectedModels: models });
       get().filterDataManually();
       return;
     }
-    set({ selectedModels: models, currentPage: 1 });
     get().getFilteredData();
   },
   getFilteredData: async () => {

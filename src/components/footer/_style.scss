@@ -1,3 +1,17 @@
 .footer {
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+  border-top: 1px solid map-get($colors, "grey-primary");
+  svg {
+    @extend .fs-28;
+  }
+
+  * {
+    @include m576 {
+      font-size: map-get($fontSizes, "13");
+    }
+  }
 }

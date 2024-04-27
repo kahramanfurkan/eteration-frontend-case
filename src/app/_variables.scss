@@ -21,6 +21,7 @@ $colors: (
 
 //font-size
 $fontSizes: (
+  "9": 9px,
   "10": 10px,
   "12": 12px,
   "13": 13px,
@@ -28,6 +29,7 @@ $fontSizes: (
   "16": 16px,
   "18": 18px,
   "24": 24px,
+  "28": 28px,
 );
 
 @each $name, $fontSize in $fontSizes {

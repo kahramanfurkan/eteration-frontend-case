@@ -1,14 +1,15 @@
 "use client";
 
 import { dataStore } from "@/store/dataStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Filters from "@/components/filters";
 import Cart from "@/components/cart";
 import ProductCard from "@/components/productCard";
-import { Pagination, Spin } from "antd";
+import { Pagination, Spin, Drawer, Button } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 export default function Home() {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { getInitialData, getPage, loading, products, total, currentPage } =
     dataStore();
 
@@ -27,6 +28,12 @@ export default function Home() {
       </section>
 
       <section className="home-productsSection">
+        <div className="showFilters mobile-view">
+          <Button type="link" onClick={() => setMobileFiltersOpen(true)}>
+            Filters
+          </Button>
+        </div>
+
         {loading && (
           <div className="home-productsSection-loading">
             <Spin indicator={<LoadingOutlined spin />} />
@@ -63,6 +70,16 @@ export default function Home() {
       <section className="home-cartSection">
         <Cart />
       </section>
+
+      {/*Mobile filters*/}
+      <Drawer
+        placement="left"
+        title="Filters"
+        open={mobileFiltersOpen}
+        onClose={() => setMobileFiltersOpen(false)}
+      >
+        <Filters />
+      </Drawer>
     </main>
   );
 }
