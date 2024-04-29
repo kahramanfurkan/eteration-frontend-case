@@ -8,7 +8,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { dataStore } from "@/store/dataStore";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -37,18 +36,20 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
-        <Link href="/" className="navbar-wrapper-logo">
+        <a href="/" className="navbar-wrapper-logo">
           Eteration
-        </Link>
+        </a>
         <div className="navbar-wrapper-search">
           <Input
             addonBefore={<SearchOutlined />}
             placeholder="Search"
             onChange={onSearch}
             allowClear
+            value={searchValue}
+            data-testid="searchBox"
           />
         </div>
-        <div className="navbar-wrapper-userInfo">
+        <div className="navbar-wrapper-userInfo" data-testid="userInfo">
           <div className="navbar-wrapper-userInfo-wallet">
             <WalletOutlined />
             <span>117.000₺</span>

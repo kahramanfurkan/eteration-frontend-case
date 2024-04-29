@@ -5,7 +5,7 @@ import AddCartButton from "../addCartButton";
 
 export default function ProductCard(product: Product) {
   return (
-    <Link href={`/productDetail/${product.id}`}>
+    <Link href={`/productDetail/${product.id}`} data-testid="productCard">
       <div className="productCard">
         <Image
           width={160}

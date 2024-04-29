@@ -42,11 +42,24 @@ export default function Cart() {
               </span>
             </section>
             <section className="cartItem-updateButtons">
-              <Button onClick={() => decreaseCartCount(cartItem)}>-</Button>
-              <span className="cartItem-updateButtons-cartCount">
+              <Button
+                onClick={() => decreaseCartCount(cartItem)}
+                data-testid="cartDecrement"
+              >
+                -
+              </Button>
+              <span
+                className="cartItem-updateButtons-cartCount"
+                data-testid="cartCount"
+              >
                 {cartItem?.cartCount}
               </span>
-              <Button onClick={() => increaseCartCount(cartItem)}>+</Button>
+              <Button
+                onClick={() => increaseCartCount(cartItem)}
+                data-testid="cartIncrement"
+              >
+                +
+              </Button>
             </section>
           </div>
         ))}
@@ -59,7 +72,9 @@ export default function Cart() {
         <div className="checkOut">
           <div className="checkOut-total">
             <span className="checkOut-total-title">Total Price: </span>
-            <span className="checkOut-total-price">{getTotalPrice()} ₺</span>
+            <span className="checkOut-total-price" data-testid="cartTotalPrice">
+              {getTotalPrice()} ₺
+            </span>
           </div>
 
           <div className="checkOut-button">
