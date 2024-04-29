@@ -1,3 +1,19 @@
+## Kullanılan Teknolojiler
+* NextJS/Typescript
+* UI: Ant Design
+* Styling: Scss
+* State Management: Zustand
+* Data Fetcing: Axios
+* Test: Jest & @testing-library/react
+* Önizleme: (https://eteration-frontend-case-fk.vercel.app)
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
